@@ -4,10 +4,11 @@ public class Building {
     protected String address;
     protected int nFloors;
     protected int activeFloor = -1; // Default value indicating we are not inside this building
+    protected boolean hasElevator;
 
     /* Default constructor */
     public Building() {
-        this("<Name Unknown>", "<Address Unknown>", 1);
+        this("<Name Unknown>", "<Address Unknown>", 1, false);
     }
 
     /* Overloaded constructor with address only */
@@ -18,17 +19,18 @@ public class Building {
 
     /* Overloaded constructor with name, address */
     public Building(String name, String address) {
-        this(name, address, 1); // Call full constructor with hard-coded # floors
+        this(name, address, 1, false); // Call full constructor with hard-coded # floors
     }
 
     /* Full constructor */
-    public Building(String name, String address, int nFloors) {
+    public Building(String name, String address, int nFloors, boolean hasElevator) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
         if (nFloors < 1) {
             throw new RuntimeException("Cannot construct a building with fewer than 1 floor.");
         }
         this.nFloors = nFloors;
+        this.hasElevator = hasElevator;
     }
 
     /* Accessors */
@@ -66,15 +68,21 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
+    /**Overriding goToFloor to reflect elevator use */
     public void goToFloor(int floorNum) {
-        if (this.activeFloor == -1) {
-            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+        if (this.hasElevator) {
+            if (this.activeFloor == -1) {
+                throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+            }
+            if (floorNum < 1 || floorNum > this.nFloors) {
+                throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+            }
+            System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+            this.activeFloor = floorNum;
         }
-        if (floorNum < 1 || floorNum > this.nFloors) {
-            throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+        else {
+            throw new RuntimeException("Building does not have an elevator! Walk.");
         }
-        System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-        this.activeFloor = floorNum;
     }
 
     public void goUp() {
@@ -98,7 +106,7 @@ public class Building {
         System.out.println("Test of Building constructor/methods");
         System.out.println("------------------------------------");
         
-        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4);
+        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4, false);
         System.out.println(fordHall);
         fordHall.showOptions();
 

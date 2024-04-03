@@ -5,7 +5,13 @@ public class Library extends Building {
   private Hashtable<String, Boolean> collection;
 
 
-  //constructor
+  /**
+   * constructor for library
+   * @param name
+   * @param address
+   * @param nFloors
+   * @param hasElevator
+   */
     public Library(String name, String address, int nFloors, boolean hasElevator) {
       super(name, address, nFloors, hasElevator);
       collection = new Hashtable<String, Boolean>();
@@ -86,8 +92,6 @@ public class Library extends Building {
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut(title)\n + returnBook(title)");
     }
-
-
 
     /**
      * Main method

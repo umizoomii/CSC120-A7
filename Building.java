@@ -22,7 +22,13 @@ public class Building {
         this(name, address, 1, false); // Call full constructor with hard-coded # floors
     }
 
-    /* Full constructor */
+    /**
+     * Full building constructor
+     * @param name
+     * @param address
+     * @param nFloors
+     * @param hasElevator
+     */
     public Building(String name, String address, int nFloors, boolean hasElevator) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
@@ -93,22 +99,30 @@ public class Building {
         this.goToFloor(this.activeFloor - 1);
     }
 
+    /*Show all options available */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
+    /* toString for building */
     public String toString() {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }
 
+    /**
+     * main for testing
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("------------------------------------");
         System.out.println("Test of Building constructor/methods");
         System.out.println("------------------------------------");
         
-        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4, false);
+        Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4, true);
         System.out.println(fordHall);
         fordHall.showOptions();
+        fordHall.enter();
+        fordHall.goToFloor(3);
 
         System.out.println("-----------------------------------");
         System.out.println("Demonstrating enter/exit/navigation");

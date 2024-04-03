@@ -40,10 +40,26 @@ public class CampusMap {
         return mapString;
     }
 
+    /**
+     * main for testing
+     * @param args
+     */
     public static void main(String[] args) {
         CampusMap myMap = new CampusMap();
-        myMap.addBuilding(new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4));
-        myMap.addBuilding(new Building("Bass Hall", "4 Tyler Court Northampton, MA 01063", 4));
+        myMap.addBuilding(new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4, false));
+        myMap.addBuilding(new Building("Bass Hall", "4 Tyler Court Northampton, MA 01063", 4, true));
+        
+        myMap.addBuilding(new Building("Botanic Garden", "16 College Ln, Northampton, MA 01063", 1, false));
+        myMap.addBuilding(new House("Emerson House", "1 Paradise Road, Northampton, MA 01063", 4, false, true));
+        myMap.addBuilding(new Building("Art Museum", "20 Elm Street, Northampton, MA 01063", 1, false));
+        myMap.addBuilding(new Building("Bookstore", "8 Green Street, Northampton, MA 01063", 1, false));
+        myMap.addBuilding(new Building("Ceramics Studio", "40 Green Street, Northampton, MA 01063", 1, false));
+        myMap.addBuilding(new Building("Ainsworth Gymnasium", "102 Lower College Ln, Northampton, MA 01063", 3, true));
+        myMap.addBuilding(new Library("Nielson Library", "83 Green St, Northampton, MA 01063", 2, true));
+        myMap.addBuilding(new House("Sessions House", "1 Elm St, Northampton, MA 01063", 2, false, false));
+        myMap.addBuilding(new Cafe("Compass Cafe", "7 Nielson Drive, Northampton, MA 01063", 1, true));
+        myMap.addBuilding(new House("King House", "180 Elm St, Northampton, MA 01063", 3, true, true));
+
         System.out.println(myMap);
     }
     

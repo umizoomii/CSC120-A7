@@ -1,3 +1,5 @@
+import javax.management.RuntimeErrorException;
+
 public class Cafe extends Building {
 
     private int nCoffeeOunces; 
@@ -21,7 +23,13 @@ public class Cafe extends Building {
         this(name, address, 1, false); // Call full constructor with hard-coded # floors
     }
 
-    /* Full constructor */
+    /**
+     * Full constructor for cafe
+     * @param name
+     * @param address
+     * @param nFloors
+     * @param hasElevator
+     */
     public Cafe(String name, String address, int nFloors, boolean hasElevator) {
         if (name != null) { 
             this.name = name; 
@@ -88,7 +96,19 @@ public class Cafe extends Building {
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() ");
     }
+
+    /**
+     * Overriding goToFloor method for cafe
+     * @param floorNum
+     */
+    public void goToFloor(int floorNum) {
+        throw new RuntimeException("Method does not exist!!");
+    }
     
+    /**
+     * main for testing
+     * @param args
+     */
     public static void main(String[] args) {
         Cafe compassCafe = new Cafe("Compass Cafe", "Smith campus", 1, false);
         compassCafe.sellCoffee(8, 2, 1);

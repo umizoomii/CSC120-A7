@@ -28,7 +28,14 @@ public class House extends Building {
         this.residents = residents;
     }
 
-    /* Full constructor */
+    /**
+     * Full constructor for house
+     * @param name
+     * @param address
+     * @param nFloors
+     * @param hasElevator
+     * @param hasDiningRoom
+     */
     public House(String name, String address, int nFloors, boolean hasElevator, boolean hasDiningRoom) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
@@ -55,7 +62,7 @@ public class House extends Building {
    * @return true if the house has an elevator, false if it doesn't
    */
   public boolean hasElevator() {
-    return hasElevator;
+    return this.hasElevator;
   }
 
   /**
@@ -122,6 +129,10 @@ public class House extends Building {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n ");
 }
 
+  /**
+   * main for testing
+   * @param args
+   */
   public static void main(String[] args) {
     House myHouse = new House("Emerson", "1 Paradise Road", 4, true, true);
     myHouse.residents.add("Uma");
@@ -138,6 +149,8 @@ public class House extends Building {
     System.out.println(myHouse.isResident("Delia"));
 
     myHouse.enter();
+    myHouse.hasElevator();
+    myHouse.goToFloor(4);
   }
 
 }

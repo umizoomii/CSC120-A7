@@ -2,3 +2,6 @@ Use this file to record your reflection on this assignment.
 
 - Which methods did you decide to `overload`, and why?
 - What worked, what didn't, what advice would you give someone taking this course in the future?
+
+I overloaded the cafe constructor and the house constructor. I chose these methods to overload because I wanted to experiment with making a "default constructor" vs. a constructor with one paramater, all the way up to a full constructor. The only issues I ran into were that the classes I overloaded weren't recognizing if a building had an elevator or not, but I restarted VSCode and it was working! 
+I really liked this assignment because it incorporated things we've learned from the last assignment, but we were able to apply them in a new way. I think the issue I had was actually an issue with my computer and not VSCode specifically because my computer was working super slowly so I restarted it and it worked much better. I also confused overriding with overloading at first, but I fixed that by quickly checking the slides. I would recommend that people taking this course just go for it and figure it out along the way by testing what works and what doesn't instead of trying to completley understand the concepts before starting.
